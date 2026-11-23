@@ -1,4 +1,5 @@
 import { company } from '../data/company'
+import { images } from '../data/images'
 import { useReveal } from '../hooks/useReveal'
 import styles from './Contact.module.css'
 
@@ -29,7 +30,7 @@ export function Contact() {
       <div className={`container ${styles.layout} reveal`} ref={ref}>
         <div className={styles.visual}>
           <img
-            src="/images/realizations/lazienka-1.webp"
+            src={images.lazienka1}
             alt="Realizacja łazienki BaronDesign"
             loading="lazy"
             decoding="async"

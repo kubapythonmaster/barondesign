@@ -1,4 +1,5 @@
 import { company } from '../data/company'
+import { images } from '../data/images'
 import { useReveal } from '../hooks/useReveal'
 import styles from './About.module.css'
 
@@ -55,7 +56,7 @@ export function About() {
 
         <div className={styles.visual}>
           <img
-            src="/images/realizations/sciana-dekoracyjna.webp"
+            src={images.scianaDekoracyjna}
             alt="Dekoracyjna ściana — realizacja BaronDesign"
             loading="lazy"
             decoding="async"

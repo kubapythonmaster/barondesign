@@ -49,6 +49,17 @@ img {
   height: auto;
 }
 
+/* Safer touch targets + image rendering on mobile */
+@media (max-width: 768px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -91,6 +102,8 @@ ul {
   background: var(--white);
   color: var(--text);
   border-top: 1px solid var(--line-soft);
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 720px;
 }
 
 .section--dark {

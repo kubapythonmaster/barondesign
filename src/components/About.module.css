@@ -95,10 +95,28 @@
 
   .visual {
     order: -1;
-    min-height: 340px;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
   }
 
   .visual img {
-    min-height: 340px;
+    min-height: 0;
+    height: 100%;
+    aspect-ratio: 4 / 3;
+  }
+
+  .quote {
+    width: min(92%, 260px);
+    padding: 1.15rem 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .visual {
+    aspect-ratio: 1 / 1;
+  }
+
+  .visual img {
+    aspect-ratio: 1 / 1;
   }
 }

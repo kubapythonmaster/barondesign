@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { images } from '../data/images'
 import styles from './Header.module.css'
 
 const links = [
@@ -51,13 +52,19 @@ export function Header() {
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    if (open) window.addEventListener('keydown', onKey)
     return () => {
       document.body.style.overflow = ''
+      window.removeEventListener('keydown', onKey)
     }
   }, [open])
 
   const solid = scrolled || open
   const close = () => setOpen(false)
+  const toggle = () => setOpen((v) => !v)
 
   const handleNav = (id: string) => {
     setActive(id)
@@ -77,7 +84,14 @@ export function Header() {
             }}
             aria-label="BaronDesign — strona główna"
           >
-            <img src="/logo.webp" alt="BaronDesign" className={styles.logoImg} width={38} height={38} />
+            <img
+              src={images.logo}
+              alt="BaronDesign"
+              className={styles.logoImg}
+              width={38}
+              height={38}
+              decoding="async"
+            />
             <span className={styles.logoText}>
               <span className={styles.logoBaron}>Baron</span>
               <span className={styles.logoDesign}>Design</span>
@@ -111,13 +125,22 @@ export function Header() {
               aria-expanded={open}
               aria-controls="mobile-nav"
               aria-label={open ? 'Zamknij menu' : 'Otwórz menu'}
-              onClick={() => setOpen((v) => !v)}
+              onClick={toggle}
             >
               <span />
             </button>
           </div>
         </div>
       </header>
+
+      {open ? (
+        <button
+          type="button"
+          className={styles.backdrop}
+          aria-label="Zamknij menu"
+          onClick={close}
+        />
+      ) : null}
 
       <div
         id="mobile-nav"

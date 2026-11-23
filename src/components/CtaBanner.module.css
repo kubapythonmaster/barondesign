@@ -107,10 +107,18 @@
   }
 
   .inner {
-    align-items: flex-start;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
   }
 
   .bg img {
     filter: brightness(0.38) contrast(1.05);
+    object-position: center center;
   }
 }

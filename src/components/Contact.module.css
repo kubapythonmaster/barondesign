@@ -185,16 +185,36 @@
   }
 
   .visual {
-    min-height: 320px;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
     order: -1;
   }
 
   .visual img {
-    min-height: 320px;
+    min-height: 0;
+    height: 100%;
+    aspect-ratio: 4 / 3;
   }
 }
 
 @media (max-width: 560px) {
+  .section {
+    padding: clamp(3.5rem, 10vw, 5rem) 0;
+  }
+
+  .visual {
+    aspect-ratio: 1 / 1;
+  }
+
+  .visual img {
+    aspect-ratio: 1 / 1;
+  }
+
+  .phoneNumber {
+    font-size: clamp(1.45rem, 7vw, 1.9rem);
+    word-break: break-word;
+  }
+
   .channel {
     grid-template-columns: 1fr auto;
     gap: 0.35rem 0.75rem;

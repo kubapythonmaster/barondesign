@@ -1,4 +1,5 @@
 import { company } from '../data/company'
+import { images } from '../data/images'
 import { useReveal } from '../hooks/useReveal'
 import styles from './CtaBanner.module.css'
 
@@ -9,7 +10,7 @@ export function CtaBanner() {
     <section className={styles.banner} aria-labelledby="cta-title">
       <div className={styles.bg} aria-hidden="true">
         <img
-          src="/images/realizations/prysznic-industrial.webp"
+          src={images.prysznicIndustrial}
           alt=""
           width={1600}
           height={1000}

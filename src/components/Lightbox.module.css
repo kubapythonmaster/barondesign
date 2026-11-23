@@ -28,7 +28,20 @@
   max-height: min(78svh, 820px);
   width: auto;
   max-width: 100%;
+  height: auto;
   object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  .overlay {
+    padding: 0.75rem;
+    align-items: center;
+  }
+
+  .figure img {
+    max-height: min(70svh, 640px);
+    width: 100%;
+  }
 }
 
 .caption {

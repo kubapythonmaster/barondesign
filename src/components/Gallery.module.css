@@ -35,8 +35,9 @@
   background: #111;
   cursor: zoom-in;
   aspect-ratio: 16 / 9;
-  min-height: 320px;
+  min-height: 240px;
   text-align: left;
+  touch-action: manipulation;
 }
 
 .slide {
@@ -71,7 +72,7 @@
   left: 0;
   bottom: 0;
   z-index: 3;
-  padding: 1.5rem 1.4rem;
+  padding: 1.25rem 1.1rem;
   color: #fff;
   max-width: 28rem;
 }
@@ -88,7 +89,7 @@
 .stageInfo strong {
   display: block;
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(1.35rem, 3vw, 2rem);
   font-weight: 500;
   line-height: 1.15;
 }
@@ -97,7 +98,7 @@
   display: block;
   margin-top: 0.3rem;
   font-style: normal;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.72);
   font-weight: 300;
 }
@@ -124,6 +125,7 @@
   font-size: 1.35rem;
   line-height: 1;
   transition: border-color 0.25s var(--ease), background 0.25s var(--ease), color 0.25s var(--ease);
+  touch-action: manipulation;
 }
 
 .arrow:hover {
@@ -133,11 +135,13 @@
 }
 
 .thumbs {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  display: flex;
   gap: 0.5rem;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
   scrollbar-width: none;
+  padding-bottom: 0.15rem;
 }
 
 .thumbs::-webkit-scrollbar {
@@ -146,6 +150,7 @@
 
 .thumb {
   position: relative;
+  flex: 0 0 clamp(72px, 18vw, 110px);
   padding: 0;
   border: 1px solid transparent;
   overflow: hidden;
@@ -153,6 +158,8 @@
   background: #111;
   opacity: 0.45;
   transition: opacity 0.25s var(--ease), border-color 0.25s var(--ease);
+  scroll-snap-align: start;
+  touch-action: manipulation;
 }
 
 .thumb img {
@@ -212,21 +219,23 @@
 }
 
 @media (max-width: 800px) {
-  .thumbs {
-    grid-template-columns: repeat(7, minmax(64px, 1fr));
-  }
-
   .rail {
     grid-template-columns: 1fr;
   }
 
   .controls {
     order: 2;
+    justify-content: flex-start;
   }
 }
 
 @media (max-width: 560px) {
   .stage {
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 3 / 4;
+    min-height: 280px;
+  }
+
+  .stageInfo {
+    padding: 1rem 0.9rem;
   }
 }

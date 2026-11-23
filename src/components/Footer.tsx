@@ -1,4 +1,5 @@
 import { company } from '../data/company'
+import { images } from '../data/images'
 import styles from './Footer.module.css'
 
 const nav = [
@@ -19,7 +20,7 @@ export function Footer() {
         <div className={styles.top}>
           <div className={styles.brandCol}>
             <a href="#top" className={styles.brand} aria-label="BaronDesign">
-              <img src="/logo.webp" alt="BaronDesign" width={44} height={44} />
+              <img src={images.logo} alt="BaronDesign" width={44} height={44} loading="lazy" decoding="async" />
               <span className={styles.brandText}>
                 <span className={styles.name}>
                   Baron<span className={styles.design}>Design</span>

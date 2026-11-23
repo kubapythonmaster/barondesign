@@ -1,22 +1,23 @@
 import { useEffect, useState } from 'react'
 import { company } from '../data/company'
+import { images } from '../data/images'
 import styles from './Hero.module.css'
 
 const slides = [
   {
-    src: '/images/realizations/lazienka-1.webp',
+    src: images.lazienka1,
     alt: 'Nowoczesna łazienka — realizacja BaronDesign',
   },
   {
-    src: '/images/realizations/lazienka-2.webp',
+    src: images.lazienka2,
     alt: 'Wykończenie łazienki — realizacja BaronDesign',
   },
   {
-    src: '/images/realizations/sciana-dekoracyjna.webp',
+    src: images.scianaDekoracyjna,
     alt: 'Dekoracyjna ściana — realizacja BaronDesign',
   },
   {
-    src: '/images/realizations/prysznic-industrial.webp',
+    src: images.prysznicIndustrial,
     alt: 'Prysznic industrialny — realizacja BaronDesign',
   },
 ]
@@ -46,9 +47,11 @@ export function Hero() {
             className={`${styles.slide} ${i === index ? styles.slideActive : ''}`}
             src={slide.src}
             alt=""
-            width={1600}
-            height={1200}
+            width={1200}
+            height={900}
+            decoding="async"
             fetchPriority={i === 0 ? 'high' : 'low'}
+            loading={i === 0 ? 'eager' : 'lazy'}
           />
         ))}
         <div className={styles.overlay} />
